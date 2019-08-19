@@ -3,7 +3,7 @@
     <div class="header">
       <v-header></v-header>
     </div>
-    <div class="tab ">
+    <div class="tab border-1px">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
       </div>
