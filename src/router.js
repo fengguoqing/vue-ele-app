@@ -8,6 +8,10 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: "/",
+      redirect: "/goods"
+    },
+    {
       path: "/goods",
       name: "goods",
       component: () => import("./views/goods/goods.vue")

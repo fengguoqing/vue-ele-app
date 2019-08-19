@@ -3,7 +3,7 @@
     <div class="header">
       <v-header></v-header>
     </div>
-    <div class="tab">
+    <div class="tab ">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
       </div>
@@ -18,23 +18,34 @@
   </div>
 </template>
 <script>
-  import Header from "_c/header/header";
-  export default {
-    components: {
-      "v-header": Header
-    }
-  };
+import Header from "_c/header/header";
+export default {
+  components: {
+    "v-header": Header
+  }
+};
 </script>
-<style lang="less" scoped>
-  .tab {
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    display: flex;
+<style lang="less">
+@import "../static/css/reset.css";
+@import "./common/less/index.less";
+.tab {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  .border-1px(rgba(7, 17, 27, 0.1));
 
-    .tab-item {
-      flex: 1;
-      text-align: center;
+  .tab-item {
+    flex: 1;
+    text-align: center;
+    & > a {
+      display: block;
+      font-size: 14px;
+      color: rgb(77, 85, 93);
+      &.router-link-active {
+        color: rgb(240, 20, 20);
+      }
     }
   }
+}
 </style>
