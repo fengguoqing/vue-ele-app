@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <v-header></v-header>
+      <v-header :seller="seller"></v-header>
     </div>
     <div class="tab border-1px">
       <div class="tab-item">
@@ -19,10 +19,24 @@
 </template>
 <script>
 import Header from "_c/header/header";
+const ERR_OK = 0;
 export default {
   components: {
     "v-header": Header
-  }
+  },
+  data() {
+    return {
+      seller: {}
+    };
+  },
+  created() {
+    this.$http.post("/api/seller").then(res => {
+      if (res.data.errno === ERR_OK) {
+        this.seller = res.data.data;
+      }
+    });
+  },
+  methods: {}
 };
 </script>
 <style lang="less">
